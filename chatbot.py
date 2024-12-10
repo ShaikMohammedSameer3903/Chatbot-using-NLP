@@ -76,4 +76,14 @@ def predict_response(user_input):
 
 # Chatbot loop
 def chatbot():
-    print("Chatbot is running! Type '
+    print("Chatbot is running! Type 'quit' to exit.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "quit":
+            print("Chatbot: Goodbye!")
+            break
+        response = predict_response(user_input)
+        print(f"Chatbot: {response}")
+
+# Run the chatbot
+chatbot()
