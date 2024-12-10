@@ -9,6 +9,10 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.utils import to_categorical
 
+# Download NLTK resources
+nltk.download('punkt')
+nltk.download('wordnet')
+
 # Load intents file
 with open('intents.json') as file:
     intents = json.load(file)
@@ -79,11 +83,12 @@ def chatbot():
     print("Chatbot is running! Type 'quit' to exit.")
     while True:
         user_input = input("You: ")
-        if user_input.lower() == "quit":
-            print("Chatbot: Goodbye!")
+        if user_input.lower() == 'quit':
+            print("Chatbot: Goodbye! Have a great day!")
             break
         response = predict_response(user_input)
         print(f"Chatbot: {response}")
 
 # Run the chatbot
-chatbot()
+if __name__ == "__main__":
+    chatbot()
